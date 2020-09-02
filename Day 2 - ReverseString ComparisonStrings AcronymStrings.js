@@ -1,5 +1,7 @@
-// ************************************************
+//JAVASCRIPT
 
+
+//REVERSE STRING
 /*
   String: Reverse
   Implement reverseString(str)
@@ -29,6 +31,9 @@ console.log(reverseStringReturnValue)
 // #splicing
 // 'hello world'[::-1]
 
+
+
+//STRING ACRONYMS
 /*
   Acronyms
   Create a function that, given a string, returns the string’s acronym
@@ -73,6 +78,10 @@ console.log(stringAcronymReturnValue)
 
 // ************************************************
 
+
+
+
+// STRING COMPARISONS
 /*
   Case insensitive string comparison
   const test1StrA = "ABC"
