@@ -11,7 +11,15 @@ const str2 = "helloo"
 // const expected2 = "helo"
 
 function stringDedupe(str) {
-
+  let temp='';
+  for(let i=0; i< str.length;i++){
+    if(temp.includes(str[i])){
+      continue;
+    } else{
+      temp+= str[i];
+    }
+  }
+  return temp;
 }
 
 console.log(stringDedupe(str1));
@@ -36,7 +44,16 @@ const str3 = "abc def ghi"
 // const expected3 = "cba fed ihg"
 
 function reverseWords(str) {
-
+  var newStr = '';
+  var newList= str.split(" ");
+  for(var i=0; i<=newList.length-1;i++){
+    var word =newList[i];
+    for(var j=word.length-1; j>=0;j--){
+      newStr+= word[j];
+    }
+    newStr+=" ";
+  }
+  return newStr;
 }
 console.log(reverseWords(str1));
 console.log(reverseWords(str2));
