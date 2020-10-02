@@ -20,22 +20,63 @@ class SLL {
     }
   }
 
-  // if val is contained within the current list, delete it.
-  // return void
-  // assume there are no duplicates
-  // consider the edge case if you have to delete the head node
-  delete(val) {
-    let runner = this.head;
-    if(val == runner.data){
-      this.removeFromFront();
+    // add
+    // remove
+    //  removebyname/removebyid
+    // search
+    // traverse (visit every element)
+
+    deleteVersion1(data) {
+        // create a runner
+        let runner = this.head;
+        // check if head is empty
+        if (!runner) {
+            return;
+        }
+        // check if head is target
+        if (runner.data == data) {
+            this.removeFromFront();
+            return;
+        }
+
+        // while next exists
+        while (runner.next) {
+            // check if runner next is data
+            if (runner.next.data == data) {
+                // remove it and return
+                runner.next = runner.next.next;
+                return;
+            }
+            // otherwise traverse
+            runner = runner.next;
+        }
     }
-    while(runner){
-      if(val == runner.next.data){
-        runner.next = runner.next.next;
-      }
-      runner = runner.next;
+
+
+    // if val is contained within the current list, delete it.
+    // return void
+    // assume there are no duplicates
+    // consider the edge case if you have to delete the head node
+    deleteVersion2(val) {
+        var runner = this.head;
+        var prev = null;
+
+        if (runner !== null && runner.data == val) {
+            this.head = runner.next;
+            return;
+        }
+
+        while (runner && runner.data !== val) {
+            prev = runner;
+            runner = runner.next;
+        }
+
+        if (runner === null) {
+            return;
+        }
+        //runner is now our node to be deleted
+        prev.next = runner.next;
     }
-  }
 
   // Return the total amount of nodes in the list
   size() {
