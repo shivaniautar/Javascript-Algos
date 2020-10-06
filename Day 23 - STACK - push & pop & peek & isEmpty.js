@@ -43,11 +43,12 @@ class slStack {
     }
 
     //add to top
-    push(newNode) {
+    push(num) {
+        var newNode = new Node(num);
         if (this.top === null) {
             this.top = newNode;
         } else {
-            // newNode.next = this.top;
+            newNode.next = this.top;
             this.top = newNode;
         }
         this.length++;
@@ -58,9 +59,9 @@ class slStack {
         if (this.top === null) return null;
         const removed = this.top;
         this.top = this.top.next;
-        // removed.next = null;
+        removed.next = null;
         this.length--;
-        return removed.data;
+        return removed;
     }
 
     //aka check top
@@ -106,7 +107,9 @@ function countStack(stack) {
 let myStack1 = new slStack();
 myStack1.push(10);
 myStack1.push(12);
-myStack1.pop();
-// console.log(myStack1.peek());
-console.log(myStack1);
-// console.log(countStack(myStack1));
+myStack1.push(13);
+myStack1.push(14);
+myStack1.push(15);
+console.log(myStack1.pop());
+console.log(myStack1.peek());
+console.log(countStack(myStack1));
