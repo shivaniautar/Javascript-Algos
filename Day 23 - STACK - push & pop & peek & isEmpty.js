@@ -4,25 +4,25 @@
 //LAST IN, FIRST OUT like a stack of paper
 //Fact, we can't see whats inside our stack without taking it apart.
 
-class arrStack{
-    constructor(){
+class arrStack {
+    constructor() {
         this.items = [];
     }
 
-    push(item){
+    push(item) {
         this.items.push(item);
     }
 
-    pop(){
+    pop() {
         return this.items.pop();
     }
 
-    peek(){
-        return this.items[this.items.length-1];
+    peek() {
+        return this.items[this.items.length - 1];
     }
 
-    isEmpty(){
-        if (this.items.length === 0){
+    isEmpty() {
+        if (this.items.length === 0) {
             return true;
         }
         return false;
@@ -30,53 +30,53 @@ class arrStack{
 }
 
 class Node {
-    constructor(data){
+    constructor(data) {
         this.data = data;
         this.next = null;
     }
 }
 
-class slStack{
-    constructor(){
+class slStack {
+    constructor() {
         this.top = null; //this.head, this.end
         this.length = 0;
     }
 
     //add to top
-    push(newNode){
-        if (this.top === null){
+    push(newNode) {
+        if (this.top === null) {
             this.top = newNode;
         } else {
-            newNode.next = this.top;
+            // newNode.next = this.top;
             this.top = newNode;
         }
         this.length++;
     }
 
     //remove from top
-    pop(){
+    pop() {
         if (this.top === null) return null;
         const removed = this.top;
         this.top = this.top.next;
         removed.next = null;
         this.length--;
-        return this.top;
+        return removed.data;
     }
 
     //aka check top
-    peek(){
-        return this.head? this.head.data : null;
+    peek() {
+        return this.top? this.top.data : null;
     }
 
     //check if empty
-    isEmpty(){
-        if (this.top === null){
+    isEmpty() {
+        if (this.top === null) {
             return true;
         }
         return false;
     }
 
-    length(){
+    length() {
         return this.length;
     }
 }
@@ -89,15 +89,15 @@ class slStack{
 //the given stack must be returned back to its original order
 //you may only use public stack methods push pop peek isEmpty
 
-function countStack(stack){
+function countStack(stack) {
     let newStack = new slStack();
     let count = 0;
-    while(!stack.isEmpty()){
+    while (!stack.isEmpty()) {
         let node = stack.pop();
         newStack.push(node);
         count++;
     }
-    while(!newStack.isEmpty()){
+    while (!newStack.isEmpty()) {
         stack.push(newStack.pop());
     }
     return count;
@@ -106,6 +106,7 @@ function countStack(stack){
 let myStack1 = new slStack();
 myStack1.push(10);
 myStack1.push(12);
-// myStack1.push(13);
+myStack1.pop();
+// console.log(myStack1.peek());
 // console.log(myStack1);
-console.log(countStack(myStack1));
+// console.log(countStack(myStack1));
