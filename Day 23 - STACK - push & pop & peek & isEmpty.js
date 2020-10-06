@@ -58,7 +58,7 @@ class slStack {
         if (this.top === null) return null;
         const removed = this.top;
         this.top = this.top.next;
-        removed.next = null;
+        // removed.next = null;
         this.length--;
         return removed.data;
     }
@@ -108,5 +108,5 @@ myStack1.push(10);
 myStack1.push(12);
 myStack1.pop();
 // console.log(myStack1.peek());
-// console.log(myStack1);
+console.log(myStack1);
 // console.log(countStack(myStack1));
