@@ -39,8 +39,7 @@ function isPalindrome(queue) {
         if (popped.data !== dequeued.data) {
             palindrome = false; // even if we flip palindrome to false, keep going to fix the queue
         }
-
-        queue.enqueue(dequeued);
+         queue.enqueue(dequeued);
     }
 
     return palindrome;
@@ -175,8 +174,7 @@ class slStack {
 
 let myStack2 = new Queue();
 myStack2.enqueue(3);
-myStack2.enqueue(32);
-myStack2.enqueue(33);
+myStack2.enqueue(3);
 console.log(isPalindrome(myStack2));
 // console.log(myStack2.checkFront());
 // console.log(myStack2.isEmpty());
