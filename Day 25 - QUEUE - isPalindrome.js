@@ -1,3 +1,54 @@
+// queue: isPalindrome
+// return true or false if the queue is a palindrome:
+// a palindrome is a string or number that is equal to itself when reversed
+
+// racecar === racecar
+// race !=== ecar
+
+
+
+//            r                   f
+// queue = <-(1)<-(2)<-(3)<-(2)<-(1)
+// return true
+
+//            r               f
+// queue = <-(1)<-(3)<-(4)<-(40)
+// return false
+
+// you may not linearly iterate through your queue
+// only use public queue methods (enqueue, dequeue, checkFront, isEmpty, length)
+// return the queue back to it's original order
+
+// you may use stacks or queues as additional storage, or even arrays
+// you may create helper methods to break this challenge down into smaller parts
+
+function isPalindrome(queue) {
+    var palindrome = true;
+    var stack = new slStack();  // create a stack to hold data
+    var len = queue.length; // get a fixed length
+
+    for (var i = 0; i < len; i++) {
+        var node = queue.dequeue();
+        stack.push(new Node(node.data)); // we must create new Nodes for the stack
+        queue.enqueue(node);
+    }
+    for (var j = 0; j < len; j++) {
+        var dequeued = queue.dequeue();
+        var popped = stack.pop();
+
+        if (popped.data !== dequeued.data) {
+            palindrome = false; // even if we flip palindrome to false, keep going to fix the queue
+        }
+
+        queue.enqueue(dequeued);
+    }
+
+    return palindrome;
+}
+
+
+
+
 //Queue
 //FIFO data structure
 // First in, First out
@@ -76,15 +127,6 @@ class Queue {
 }
 
 
-let myStack2 = new Queue();
-myStack2.enqueue(10);
-myStack2.enqueue(30);
-myStack2.enqueue(50);
-console.log(isPalindrome(myStack2));
-// console.log(myStack2.checkFront());
-// console.log(myStack2.isEmpty());
-// myStack2.printQueue();
-
 class slStack {
     constructor() {
         this.top = null; //this.head, this.end
@@ -131,57 +173,18 @@ class slStack {
     }
 }
 
+let myStack2 = new Queue();
+myStack2.enqueue(3);
+myStack2.enqueue(32);
+myStack2.enqueue(33);
+console.log(isPalindrome(myStack2));
+// console.log(myStack2.checkFront());
+// console.log(myStack2.isEmpty());
+// myStack2.printQueue();
 
 
-// queue: isPalindrome
-// return true or false if the queue is a palindrome:
-// a palindrome is a string or number that is equal to itself when reversed
-
-// racecar === racecar
-// race !=== ecar
 
 
-
-//            r                   f
-// queue = <-(1)<-(2)<-(3)<-(2)<-(1)
-// return true
-
-//            r               f
-// queue = <-(1)<-(3)<-(4)<-(40)
-// return false
-
-// you may not linearly iterate through your queue
-// only use public queue methods (enqueue, dequeue, checkFront, isEmpty, length)
-// return the queue back to it's original order
-
-// you may use stacks or queues as additional storage, or even arrays
-// you may create helper methods to break this challenge down into smaller parts
-
-function isPalindrome(queue) {
-    var palindrome = true;
-    var stack = new slStack();  // create a stack to hold data
-    var len = queue.length(); // get a fixed length
-
-    for (var i = 0; i < len; i++) {
-        var node = queue.dequeue();
-        stack.push(new Node(node.data)); // we must create new Nodes for the stack
-        queue.enqueue(node);
-    }
-
-
-    for (var i = 0; i < len; i++) {
-        var dequeued = queue.dequeue();
-        var popped = stack.pop();
-
-        if (popped.data !== dequeued.data) {
-            palindrome = false; // even if we flip palindrome to false, keep going to fix the queue
-        }
-
-        queue.enqueue(dequeued);
-    }
-
-    return palindrome;
-}
 
 
 
