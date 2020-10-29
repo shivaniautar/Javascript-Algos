@@ -1,3 +1,6 @@
+
+//COMBINE SORT AND MERGE SORT
+
 /**
  * takes in two sorted arrays
  * returns a new sorted array with the combined elements
