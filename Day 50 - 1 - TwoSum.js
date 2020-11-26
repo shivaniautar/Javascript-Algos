@@ -39,3 +39,36 @@ function twoSum(nums, target) {
 };
     
 console.log(twoSum([2,7,11,15], 9));
+
+
+// Input: nums = [3,2,3], target = 6
+// Output: [0,2]
+
+
+//Nested Loop
+
+
+/**
+ * @param {number[]} nums
+ * @param {number} target
+ * @return {number[]}
+ */
+function twoSum(nums, target) {
+    var arr = [];
+    for(var i =0;i<=nums.length; i++){
+        for(var j =1;i<=nums.length; j++){
+        var sum = nums[i] + nums[j]
+        if (sum == target) {
+            arr.push([i]);
+            arr.push([j]);
+            return arr;
+        }
+        else{
+            continue
+        }
+        }
+        
+    }
+};
+    
+// console.log(twoSum([3,2,3], 6));
