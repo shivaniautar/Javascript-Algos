@@ -16,6 +16,7 @@
 //  * @param {number[]} digits
 //  * @return {number[]}
 //  */
+//TRY 1:
 var plusOne = function(digits) {
     var newarr=[];
     for(let i=0;i<digits.length-1;i++){
@@ -26,3 +27,26 @@ var plusOne = function(digits) {
     newarr.push(lastDig);
     return newarr;
 };
+
+//TRY 2:
+/**
+ * @param {number[]} digits
+ * @return {number[]}
+ */
+var plusOne = function(digits) {
+    var newarr=[];
+    for(let i=0;i<digits.length-1;i++){
+        newarr.push(digits[i]);
+    }
+    if(digits[digits.length-1] == 9){
+        newarr.push(1);
+        newarr.push(0);
+    }
+    else{
+        var lastDig= digits[digits.length-1]
+        lastDig = lastDig+1;
+        newarr.push(lastDig);
+    }
+    return newarr;
+};
+toString().split(",")
