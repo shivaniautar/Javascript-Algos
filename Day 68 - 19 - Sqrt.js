@@ -20,3 +20,31 @@
 // Constraints:
 
 // 0 <= x <= 231 - 1
+
+
+/**
+ * @param {number} area
+ * @return {number[]}
+ */
+var constructRectangle = function(area) {
+    let x = 1;
+    let y = 0;
+    let min = area;
+    let result = [];
+    
+    while (x * x <= area) {
+        
+        if (area % x == 0) {
+            y = area / x;
+            
+            if (y - x <= min) {
+                min = y - x;
+                result = [y, x];
+            }
+        }
+
+        x++    
+    }
+    
+    return result
+};
